@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
+	media="screen,projection" />
+<link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet">
+<title>Nowe CV</title>
+</head>
+<body>
+	<div class="row">
+		<div class="col s12">
+			<ul class="tabs">
+				<li class="tab col s3"><a href="#test1">Personalne</a></li>
+				<li class="tab col s3"><a href="#test2">Umiejętności</a></li>
+				<li class="tab col s3"><a href="#test3">Wykształcenie</a></li>
+				<li class="tab col s3"><a href="#test4">Doświadczenie</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<section layout:fragment="content">
+			<p>Page content</p>
+		</section>
+	</div>
+	<script type="text/javascript" src="/webjars/jquery/3.1.1-1/jquery.js"></script>
+	<script type="text/javascript" src="/webjars/materializecss/0.98.0/js/materialize.min.js"></script>
+	<script type="text/javascript" layout:fragment="script"></script>
+</body>
+</html>
