@@ -1,8 +1,5 @@
 package lkwid.model;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 /**
  * @author lkwid
  *
@@ -12,7 +9,7 @@ public class Personal {
 	private String name;
 	private String surname;
 	private String address;
-	private LocalDate birthdate;
+	private String birthdate;
 	private String phone;
 	private String email;
 	private String link;	
@@ -35,11 +32,11 @@ public class Personal {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public LocalDate getBirthdate() {
+	public String getBirthdate() {
 		return birthdate;
 	}
-	public void setBirthdate(String text, LocalDate birthdate) {
-		this.birthdate = birthdate.parse(text, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
 	}
 	public String getPhone() {
 		return phone;

@@ -11,29 +11,23 @@
 </head>
 <body>
 	<section layout:fragment="content">
-		<form th:action="@{/education}" th:object="${education}" class="col s12" method="post">
+		<form th:action="@{/interest}" th:object="${interest}" class="col s12" method="post">
 			<div class="col s12">
-				<h4>Edukacja</h4>
+				<h4>Zainteresowania</h4>
 			</div>
 			<fieldset class="row">
-				<legend>Dodaj szkolenie lub wykształcenie</legend>
-				<button class="btn teal waves-effect" type="submit" name="addCourse">
+				<legend>Dodaj zainteresowania</legend>
+				<button class="btn teal waves-effect" type="submit" name="addInterest">
 					<span th:remove="tag">Dodaj nowe</span><i class="material-icons left">add</i>
 				</button>
-				<div class="row" th:each="row,rowStat : *{courseDates}">
-					<div class="col s2">
-						<label for="courseDate">Dodaj datę</label> <input id="courseDate" type="text"
-							th:field="*{courseDates[__${rowStat.index}__]}">
+				<div class="row" th:each="row,rowStat : *{interests}">
+					<div class="col s6">
+						<input type="text" required="required" th:field="*{interests[__${rowStat.index}__]}" />
 					</div>
-					<div class="col s10">
-						<button class="btn red waves-effect" type="submit" name="removeCourse" th:value="${rowStat.index}">
-							<span th:remove="tag">Usuń</span><i class="material-icons left">delete</i>
+					<div class="col s6">
+						<button class="btn red waves-effect" type="submit" name="removeInterest" th:value="${rowStat.index}">
+							<span th:remove="tag">Usuń</span><i class="material-icons right">delete</i>
 						</button>
-					</div>
-					<div class="input-field col s12">
-						<textarea id="courseDescription" class="materialize-textarea"
-							th:field="*{courseDescriptions[__${rowStat.index}__]}"></textarea>
-						<label for="courseDescription">Dodaj opis</label>
 					</div>
 				</div>
 			</fieldset>

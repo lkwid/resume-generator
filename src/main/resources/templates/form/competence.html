@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}" lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
+	media="screen,projection" />
+<link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet">
+<title>Osobiste</title>
+</head>
+<body>
+	<section layout:fragment="content">
+		<form th:action="@{/competence}" th:object="${competence}" class="col s12" method="post">
+			<div class="col s12">
+				<h4>Kompetencje</h4>
+			</div>
+			<fieldset class="row">
+				<legend>Języki</legend>
+				<button class="btn teal waves-effect" type="submit" name="addLanguage">
+					<span th:remove="tag">Dodaj kompetencje</span><i class="material-icons left">add</i>
+				</button>
+				<div class="row" th:each="row,rowStat : *{languages}">
+					<div class="col s4">
+						<label for="languages">Język</label><input id="languages" type="text" th:field="*{languages[__${rowStat.index}__]}" />						
+					</div>
+					<div class="col s4">
+						<label for="proficiency">Biegłość</label><input id="proficiency" type="text" th:field="*{proficiency[__${rowStat.index}__]}" />						
+					</div>
+					<div class="col s4">
+						<button class="btn red waves-effect" type="submit" name="removeLanguage" th:value="${rowStat.index}">
+							<span th:remove="tag">Usuń</span><i class="material-icons right">delete</i>
+						</button>
+					</div>
+				</div>
+			</fieldset>
+			<fieldset class="row">
+				<legend>Prawo jazdy</legend>
+				<button class="btn teal waves-effect" type="submit" name="addDrivingLicence">
+					<span th:remove="tag">Dodaj kategorię</span><i class="material-icons left">add</i>
+				</button>
+				<div class="row" th:each="cat,catStat : *{drivingLicenceCategory}">
+					<div class="col s4">
+						<input type="text" th:field="*{drivingLicenceCategory[__${catStat.index}__]}" />						
+					</div>					
+					<div class="col s8">
+						<button class="btn red waves-effect" type="submit" name="removeDrivingLicence" th:value="${catStat.index}">
+							<span th:remove="tag">Usuń</span><i class="material-icons right">delete</i>
+						</button>
+					</div>
+				</div>
+			</fieldset>
+			<fieldset class="row">
+				<legend>Cechy</legend>
+				<button class="btn teal waves-effect" type="submit" name="addPerk">
+					<span th:remove="tag">Dodaj cechy</span><i class="material-icons left">add</i>
+				</button>
+				<div class="row" th:each="perk,perkStat : *{perks}">
+					<div class="col s4">
+						<input type="text" th:field="*{perks[__${perkStat.index}__]}" />						
+					</div>					
+					<div class="col s8">
+						<button class="btn red waves-effect" type="submit" name="removePerk" th:value="${perkStat.index}">
+							<span th:remove="tag">Usuń</span><i class="material-icons right">delete</i>
+						</button>
+					</div>
+				</div>
+			</fieldset>
+			<div class="row" id="save">
+				<button class="btn waves-effect waves-light" type="submit" name="save">
+					<span th:remove="tag">Wyślij</span><i class="material-icons right">send</i>
+				</button>
+			</div>
+		</form>
+	</section>
+</body>
+</html>

@@ -17,7 +17,8 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
-					<input th:field="${personal.name}" id="name" type="text" class="validate" required="required"> <label for="name">Imię</label>
+					<input th:field="${personal.name}" id="name" type="text" class="validate" required="required"> <label
+						for="name">Imię</label>
 				</div>
 				<div class="input-field col s6">
 					<input th:field="*{surname}" id="surname" type="text" class="validate"> <label for="surname">Nazwisko</label>
@@ -30,7 +31,7 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
-					<input th:field="*{birthdate}" id="birthdate" type="text" class="validate"> <label for="birthdate">Data
+					<input th:field="*{birthdate}" id="birthdate" type="date" class="validate"> <label class="active" for="birthdate">Data
 						urodzenia</label>
 				</div>
 				<div class="input-field col s6">
@@ -49,7 +50,7 @@
 				<button class="btn waves-effect waves-light" type="submit" name="save">
 					<span th:remove="tag">Wyślij</span><i class="material-icons right">send</i>
 				</button>
-			</div>			
+			</div>
 		</form>
 	</section>
 </body>

@@ -6,6 +6,7 @@
 </head>
 <body>
 <h1>Pomyślnie dodano</h1>
-<p th:text="${personal.name}">imię</p>
+<p th:text="|Imię: ${personal.name}|">imię</p>
+<p th:text="|Język: ${competence.languages[0]} Biegłość: ${competence.proficiency[0]}">Język</p>
 </body>
 </html>
