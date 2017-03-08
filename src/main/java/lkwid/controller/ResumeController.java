@@ -57,7 +57,7 @@ public class ResumeController {
 		return formSession.toInterest();
 	}
 
-	@RequestMapping("/personal")
+	@RequestMapping("/")
 	public String formPersonal() {		
 		return "/form/personal";
 	}
