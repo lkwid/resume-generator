@@ -1,17 +1,32 @@
 package lkwid.model;
 
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.URL;
+
 /**
  * @author lkwid
  *
  */
 
-public class Personal {	
+public class Personal {
+	@Size(min=2)
 	private String name;
+	@Size(min=2)
 	private String surname;
+	@NotBlank
 	private String address;
+	@NotBlank
 	private String birthdate;
+	@NotBlank
 	private String phone;
+	@Email
+	@NotEmpty
 	private String email;
+	@URL
 	private String link;	
 
 	public String getName() {

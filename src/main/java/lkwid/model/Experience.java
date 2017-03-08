@@ -4,9 +4,14 @@ import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Experience {
+	@NotEmpty
 	private List<YearMonth> startExperience= new ArrayList<>();
+	@NotEmpty
 	private List<YearMonth> stopExperience= new ArrayList<>();
+	@NotEmpty
 	private List<String> jobDescriptions = new ArrayList<>();
 	
 	public List<YearMonth> getStartExperience() {

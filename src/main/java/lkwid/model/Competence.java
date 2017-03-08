@@ -3,10 +3,16 @@ package lkwid.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Competence {
+	@NotEmpty
 	private List<String> languages = new ArrayList<>();
-	private List<String> proficiency = new ArrayList<>();	
+	@NotEmpty
+	private List<String> proficiency = new ArrayList<>();
+	@NotEmpty
 	private List<String> drivingLicenceCategory = new ArrayList<>();
+	@NotEmpty
 	private List<String> perks = new ArrayList<>();
 	
 	public List<String> getLanguages() {

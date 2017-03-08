@@ -4,13 +4,17 @@ import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * @author lkwid
  *
  */
 
 public class Education {	
+	@NotEmpty
 	private List<YearMonth> courseDates = new ArrayList<>();
+	@NotEmpty
 	private List<String> courseDescriptions = new ArrayList<>();
 
 	public List<YearMonth> getCourseDates() {

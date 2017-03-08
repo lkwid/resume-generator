@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pl">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<title th:text="|${personal.name} ${personal.surname}|">Tytuł - imię i nazwisko</title>
+</head>
+<body>
+	<div id="main">
+		<div class="row">
+			<div class="box header-box" id="name">
+				<h1 th:text="|${personal.name} ${personal.surname}|">Imię i nazwisko</h1>
+				<div class="dropdown">
+					<div class="dropbtn">
+						<i class="material-icons">language</i>
+					</div>
+					<div class="dropdown-content">
+						<a href="index.html">PL</a>
+						<a href="index_en.html">EN</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box header-box">
+				<h4>Informacje osobiste</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box small-box">
+				<ul>
+					<li>Adres:</li>
+					<li>&nbsp;</li>
+					<li>Data urodzenia:</li>
+					<li>Telefon:</li>
+					<li>Adres email:</li>
+					<li>Github:</li>
+				</ul>
+			</div>
+			<div class="box medium-box">
+				<ul>
+					<li>Kapitana Pałaca 49/12</li>
+					<li>96:300 Żyrardów</li>
+					<li>27.12.1982</li>
+					<li>+48 519 081 581</li>
+					<li>lk.widawski@gmail.com</li>
+					<li><a href="https://github.com/lkwid">https://github.com/lkwid</a></li>
+				</ul>
+			</div>
+			<div class="box medium-box">&nbsp;</div>
+			<div class="box small-box">
+				<img src="resources/LW_profile.png" alt="Lukasz Widawski profile picture">
+			</div>
+		</div>
+		<div class="row">
+			<div class="box header-box">
+				<h4>Umiejętności</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box content-box">
+				<ul class="first-level">
+					<li>Znajomość JAVA (OOP, MVC, JavaFX, interfejsy, kolekcje, polimorfizm, wątki)</li>
+					<li>Znajomość Maven, Gradle</li>
+					<li>Znajomość Git</li>
+					<li>Podstawy Spring (xml, SpringBoot, Thymeleaf)</li>
+					<li>Podstawy Androida (xml, ButterKnife, Retrofit, Activity Lifecycle)</li>
+					<li>Podstawy baz danych (SQLite, MySQL, Hibernate)</li>
+					<li>Znajomość Html, CSS, Bootstrap, jQuery</li>
+					<li>Znajomość Eclipse, InteliJ IDEA, Android Studio, STS, Sublime Text, Gimp, Photoshop</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box header-box">
+				<h4>Projekty</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box content-box">
+				<ul class="first-level">
+					<li>Przypominacz do leków - aplikacja na Android - umożliwia dodawanie cyklicznych przypomnień dla leków
+						(nazwa, dawkowanie)
+						<ul class="second-level">
+							<li>Wykorzystane zależności: OrmLite, ButterKnife, RecyclerView</li>
+							<li>Napisano w: Android Studio</li>
+						</ul>
+					</li>
+					<li>Quiz matematyczny - aplikacja na Android - dodawanie i odejmowanie losowych liczb, zdefiniowane poziomy
+						trudności
+						<ul class="second-level">
+							<li>Wykorzystane zależności: ButterKnife</li>
+							<li>Napisano w: Android Studio</li>
+						</ul>
+					</li>
+					<li>Galeria gifów - aplikacja Spring - galeria gifów z podziałem na kategorie i z wyszukiwaniem
+						<ul class="second-level">
+							<li>Wykorzystane zależności: ThymeLeaf, ThymeLeaf Layout Dialect, JPA (Hibernate),</li>
+							<li>Napisano w: IntelliJ IDEA</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box header-box">
+				<h4>Kursy i wykształcenie</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box small-box">
+				<ul>
+					<li>03.2017</li>
+					<li>10.2014</li>
+					<li>06.2004</li>
+				</ul>
+			</div>
+			<div class="box big-box">
+				<ul>
+					<li>Java Bootcamp w Akademii Kodu - kurs z zakresu Java, Android, Spring</li>
+					<li>Zarządzanie projektami - szkolenie oparte na metodyce PMI</li>
+					<li>Licencjat na Uczelni Łazarskiego w Warszawie - handel zagraniczny</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box header-box">
+				<h4>Doświadczenie zawodowe</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box small-box">
+				<ul>
+					<li>08.2012-obecnie</li>
+					<li>&nbsp;</li>
+					<li>&nbsp;</li>
+					<li>&nbsp;</li>
+					<li>&nbsp;</li>
+					<li>&nbsp;</li>
+					<li>&nbsp;</li>
+					<li>&nbsp;</li>
+					<li>03.2008-08.2012</li>
+					<li>09.2004-08.2005</li>
+					<li>09.2005-01.2008</li>
+					<li>&nbsp;</li>
+					<li>&nbsp;</li>
+					<li>&nbsp;</li>
+				</ul>
+			</div>
+			<div class="box big-box">
+				<ul>
+					<li>NPI Manager w Technicolor - Zarządzanie procesem wdrażania nowych produktów w fabrykach od momentu
+						zainicjowania do rozpoczęcia masowej produkcji</li>
+					<ul class="second-level">
+						<li>Codzienna współpraca z partnerami ODM: Foxconn, Pegatron, Mitrastar, Askey, Cameo, FM Polska</li>
+						<li>Tworzenie i realizacja planu dla kolejnych faz wdrażania produktu</li>
+						<li>Analiza i monitorowanie zdolności produkcyjnych</li>
+						<li>Weryfikacja strategii zarządzania materiałowego w kolejnych fazach wdrażania produktu</li>
+						<li>Praca w zespole Core Team, ścisła współpraca z przedstawicieli działów Zarządzania Programem, Inżynierii,
+							Jakości i Sourcingu</li>
+					</ul>
+					<li>Inspektor jakości w Technicolor - nadzór jakościowy w fabryce podwykonawcy</li>
+					<li>Nauczyciel języka angielskiego w Gimnazjum Publicznym</li>
+					<li>Pozostałe:
+						<ul class="second-level">
+							<li>Import Manager - Mint-Electronics</li>
+							<li>Export Manager - P.P.H.U Omega</li>
+							<li>Rekruter - Creyfs</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box header-box">
+				<h4>Kompetencje</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box content-box">
+				<span class="icon">Języki angielski: biegły</span> <span class="icon">Prawo jazdy: kategoria B</span> <span
+					class="icon">Komunikatywność</span> <span class="icon">Odporność na stres</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box header-box">
+				<h4>Zainteresowania</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box content-box">
+				<span><i class="material-icons">gamepad</i>Gry komputerowe</span> <span><i class="material-icons">local_library</i>Książki</span>
+				<span><i class="material-icons">theaters</i>Film</span> <span><i class="material-icons">computer</i>Technologia</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="box footer-box">
+				<h6>Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu
+					rekrutacji (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; (tekst jednolity: Dz. U. 2016 r.
+					poz. 922).</h6>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

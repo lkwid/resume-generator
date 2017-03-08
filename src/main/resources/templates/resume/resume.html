@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
+	media="screen,projection" />
+	<link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet" />
+	<title>Życiorys</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col s12">
+				<h2 th:text="|${personal.name} ${personal.surname}"></h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<h4 th:text="#{menu.personal}">personalError</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s2">
+				<p th:text="#{address}">addressError></p>
+			</div>
+			<div class="col s4">
+				<p th:text="${personal.address}"></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s2">
+				<p th:text="#{birthdate}">birthdateError</p>
+			</div>
+			<div class="col s4">
+				<p th:text="${personal.birthdate}"></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s2">
+				<p th:text="#{phone}">phoneError</p>
+			</div>
+			<div class="col s4">
+				<p  th:text="${personal.phone}"></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s2">
+				<p th:text="#{email}">emailError</p>
+			</div>
+			<div class="col s4">
+				<p th:text="${personal.email}"></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s2">
+				<p th:text="#{link}">linkError</p>
+			</div>
+			<div class="col s4">
+				<p th:text="${personal.link}"></p>
+			</div>	
+		</div>
+		<div class="row">
+			<h4 th:text="#{menu.skill}">skillError</h4>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<ul th:each="skill : ${skill.skills}">
+					<li th:text="${skill}"></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<h4 th:text="#{menu.education}">educationError</h4>
+		</div>
+		<div class="row" th:each="date,eduStat : ${education.courseDates}" >
+			<div class="col s2">				
+				<p th:text="${date}"></p>				
+			</div>
+			<div class="col s10">
+				<ul>
+					<li th:text="${education.courseDescriptions[eduStat.index]}"></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<h4 th:text="#{menu.experience}">experienceError</h4>
+		</div>
+		<div class="row" th:each="start,expStat : ${experience.startExperience}">
+			<div class="col s2">
+				<ul>
+					<li th:text="|${start} - ${experience.stopExperience[expStat.index]}|"></li>
+				</ul>
+			</div>
+			<div class="col s10">
+				<ul>
+					<li th:text="${experience.jobDescriptions[expStat.index]}"></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<h4 th:text="#{menu.competence}">errorCompetence</h4>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<span th:each="lang, compStat : ${competence.languages}">
+					<span th:text="|${lang}: ${competence.proficiency[compStat.index]}|"></span>
+				</span>
+				<span th:each="drive : ${competence.drivingLicenceCategory}">
+					<span th:text="|, Prawo jazdy kategoria ${drive}|"></span>
+				</span>
+				<span th:each="perk : ${competence.perks}">
+					<span th:text="|, ${perk}|"></span>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<h4 th:text="#{menu.interest}">errorInterests</h4>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<span th:each="interest : ${interest.interests}">
+				<i class="tiny material-icons">thumb_up</i><span th:text="| ${interest} |"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/webjars/jquery/3.1.1-1/jquery.js"></script>
+	<script type="text/javascript" src="/webjars/materializecss/0.98.0/js/materialize.min.js"></script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 package lkwid.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -62,9 +63,9 @@ public class ResumeController {
 	}
 
 	@PostMapping(value = "/personal", params = { "save" })
-	public String addPersonal(Personal personal, BindingResult bindingResult) {
+	public String addPersonal(@Valid Personal personal, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return "/new";
+			return "/form/personal";
 		formSession.savePersonal(personal);
 		return "redirect:/skill";		
 	}
@@ -75,9 +76,9 @@ public class ResumeController {
 	}
 
 	@PostMapping(value = "/skill", params = { "save" })
-	public String addSkills(Skill skill, BindingResult bindingResult) {
+	public String addSkills(@Valid Skill skill, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return "/new";
+			return "/form/skill";
 		formSession.saveSkill(skill);
 		return "redirect:/education";
 	}
@@ -88,9 +89,9 @@ public class ResumeController {
 	}
 
 	@PostMapping(value = "/education", params = { "save" })
-	public String addEducation(Education education, BindingResult bindingResult) {
+	public String addEducation(@Valid Education education, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return "/new";
+			return "/form/education";
 		formSession.saveEducation(education);
 		return "redirect:/experience";
 	}
@@ -101,9 +102,9 @@ public class ResumeController {
 	}
 	
 	@PostMapping(value = "/experience", params = { "save" })
-	public String addExperience(Experience experience, BindingResult bindingResult) {
+	public String addExperience(@Valid Experience experience, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return "/new";
+			return "/form/experience";
 		formSession.saveExperience(experience);
 		return "redirect:/competence";
 	}
@@ -114,9 +115,9 @@ public class ResumeController {
 	}
 	
 	@PostMapping(value = "/competence", params = { "save" })
-	public String addCompetence(Competence competence, BindingResult bindingResult) {
+	public String addCompetence(@Valid Competence competence, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return "/new";
+			return "/form/competence";
 		formSession.saveCompetence(competence);
 		return "redirect:/interest";
 	}
@@ -127,11 +128,11 @@ public class ResumeController {
 	}
 	
 	@PostMapping(value = "/interest", params = { "save" })
-	public String addInterest(Interest interest, BindingResult bindingResult) {
+	public String addInterest(@Valid Interest interest, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return "/interest";
+			return "/form/interest";
 		formSession.saveInterest(interest);
-		return "/resume";
+		return "/resume/resume";
 	}
 
 	@RequestMapping(value = "/skill", params = { "addSkill" })
@@ -188,8 +189,9 @@ public class ResumeController {
 	
 	@RequestMapping(value = "/competence", params = { "removeLanguage" })
 	public String removeLanguages(Competence competence, HttpServletRequest req) {
-		Integer rowId = Integer.valueOf(req.getParameter("removeLanguages"));
-		competence.getLanguages().remove(rowId.intValue());		
+		Integer rowId = Integer.valueOf(req.getParameter("removeLanguage"));
+		competence.getLanguages().remove(rowId.intValue());	
+		competence.getProficiency().remove(rowId.intValue());	
 		return "/form/competence";
 	}
 	
@@ -214,7 +216,7 @@ public class ResumeController {
 	
 	@RequestMapping(value = "/competence", params = { "removePerk" })
 	public String removePerks(Competence competence, HttpServletRequest req) {
-		Integer rowId = Integer.valueOf(req.getParameter("removePerks"));
+		Integer rowId = Integer.valueOf(req.getParameter("removePerk"));
 		competence.getPerks().remove(rowId.intValue());		
 		return "/form/competence";
 	}

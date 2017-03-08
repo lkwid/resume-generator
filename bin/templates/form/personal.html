@@ -7,7 +7,7 @@
 <link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
 <link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet">
-<title>Osobiste</title>
+<title>Informacje osobiste</title>
 </head>
 <body>
 	<section layout:fragment="content">
@@ -17,33 +17,45 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
-					<input th:field="${personal.name}" id="name" type="text" class="validate" required="required"> <label
-						for="name">Imię</label>
+					<input th:field="*{name}" id="name" type="text" class="validate" required="required" th:errorclass="invalid">
+					<label for="name">Imię</label>
+					<div th:errors="*{name}" class="red-text">Błąd</div>
 				</div>
 				<div class="input-field col s6">
-					<input th:field="*{surname}" id="surname" type="text" class="validate"> <label for="surname">Nazwisko</label>
+					<input th:field="*{surname}" id="surname" type="text" class="validate" required="required" th:errorclass="invalid">
+					<label for="surname">Nazwisko</label>
+					<div th:errors="*{surname}" class="red-text">Błąd</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<input th:field="*{address}" id="address" type="text" class="validate"> <label for="address">Adres</label>
+					<input th:field="*{address}" id="address" type="text" class="validate" required="required" th:errorclass="invalid">
+					<label for="address">Adres</label>
+					<div th:errors="*{address}" class="red-text">Błąd</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
-					<input th:field="*{birthdate}" id="birthdate" type="date" class="validate"> <label class="active" for="birthdate">Data
-						urodzenia</label>
+					<input th:field="*{birthdate}" id="birthdate" type="date" class="validate" required="required"
+						th:errorclass="invalid"> <label class="active" for="birthdate">Data urodzenia</label>
+					<div th:errors="*{birthdate}" class="red-text">Błąd</div>
 				</div>
 				<div class="input-field col s6">
-					<input th:field="*{phone}" id="phone" type="text" class="validate"> <label for="phone">Telefon</label>
+					<input th:field="*{phone}" id="phone" type="text" class="validate" required="required" th:errorclass="invalid">
+					<label for="phone">Telefon</label>
+					<div th:errors="*{phone}" class="red-text">Błąd</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
-					<input th:field="*{email}" id="email" type="email" class="validate"> <label for="email">Email</label>
+					<input th:field="*{email}" id="email" type="email" class="validate" required="required" th:errorclass="invalid">
+					<label for="email">Email</label>
+					<div th:errors="*{email}" class="red-text">Błąd</div>
 				</div>
 				<div class="input-field col s6">
-					<input th:field="*{link}" id="link" type="text" class="validate"> <label for="link">Link</label>
+					<input th:field="*{link}" id="link" type="text" class="validate" required="required" th:errorclass="invalid">
+					<label for="link">Link</label>
+					<div th:errors="*{link}" class="red-text">Błąd</div>
 				</div>
 			</div>
 			<div class="row" id="save">

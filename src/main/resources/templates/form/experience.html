@@ -7,7 +7,7 @@
 <link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
 <link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet">
-<title>Osobiste</title>
+<title>Doświadczenie zawodowe</title>
 </head>
 <body>
 	<section layout:fragment="content">
@@ -20,6 +20,7 @@
 				<button class="btn teal waves-effect" type="submit" name="addExperience">
 					<span th:remove="tag">Dodaj nowe</span><i class="material-icons left">add</i>
 				</button>
+				<div th:errors="*{startExperience}" class="red-text">Błąd</div>
 				<div class="row" th:each="row,rowStat : *{startExperience}">
 					<div class="col s2">
 						<label for="startExperience">Dodaj datę rozpoczęcia</label> <input id="startExperience" type="text"
@@ -47,5 +48,14 @@
 			</div>
 		</form>
 	</section>
+	<script layout:fragment="script">
+		$('button').bind('click', function(e) {
+			if (e.currentTarget.name === 'save') {
+				$(e.currentTarget.form).removeAttr('novalidate');
+			} else {
+				$(e.currentTarget.form).attr('novalidate', 'novalidate');
+			}
+		});
+	</script>
 </body>
 </html>

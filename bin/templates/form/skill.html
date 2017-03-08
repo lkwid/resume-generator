@@ -7,7 +7,7 @@
 <link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
 	media="screen,projection" />
 <link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet">
-<title>Osobiste</title>
+<title>Umiejętności</title>
 </head>
 <body>
 	<section layout:fragment="content">
@@ -20,6 +20,7 @@
 				<button class="btn teal waves-effect" type="submit" name="addSkill">
 					<span th:remove="tag">Dodaj umiejętność</span><i class="material-icons left">add</i>
 				</button>
+				<div th:errors="*{skills}" class="red-text">Błąd</div>
 				<div class="row" th:each="row,rowStat : *{skills}">
 					<div class="col s6">
 						<input type="text" required="required" th:field="*{skills[__${rowStat.index}__]}" />
@@ -38,5 +39,14 @@
 			</div>
 		</form>
 	</section>
+	<script layout:fragment="script">
+		$('button').bind('click', function(e) {
+			if (e.currentTarget.name === 'save') {
+				$(e.currentTarget.form).removeAttr('novalidate');
+			} else {
+				$(e.currentTarget.form).attr('novalidate', 'novalidate');
+			}
+		});
+	</script>
 </body>
 </html>

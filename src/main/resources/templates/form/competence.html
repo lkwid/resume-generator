@@ -20,6 +20,7 @@
 				<button class="btn teal waves-effect" type="submit" name="addLanguage">
 					<span th:remove="tag">Dodaj kompetencje</span><i class="material-icons left">add</i>
 				</button>
+				<div th:errors="*{languages}" class="red-text">Błąd</div>				
 				<div class="row" th:each="row,rowStat : *{languages}">
 					<div class="col s4">
 						<label for="languages">Język</label><input id="languages" type="text" th:field="*{languages[__${rowStat.index}__]}" />						
@@ -39,6 +40,7 @@
 				<button class="btn teal waves-effect" type="submit" name="addDrivingLicence">
 					<span th:remove="tag">Dodaj kategorię</span><i class="material-icons left">add</i>
 				</button>
+				<div th:errors="*{drivingLicenceCategory}" class="red-text">Błąd</div>
 				<div class="row" th:each="cat,catStat : *{drivingLicenceCategory}">
 					<div class="col s4">
 						<input type="text" th:field="*{drivingLicenceCategory[__${catStat.index}__]}" />						
@@ -55,6 +57,7 @@
 				<button class="btn teal waves-effect" type="submit" name="addPerk">
 					<span th:remove="tag">Dodaj cechy</span><i class="material-icons left">add</i>
 				</button>
+				<div th:errors="*{perks}" class="red-text">Błąd</div>
 				<div class="row" th:each="perk,perkStat : *{perks}">
 					<div class="col s4">
 						<input type="text" th:field="*{perks[__${perkStat.index}__]}" />						
@@ -73,5 +76,14 @@
 			</div>
 		</form>
 	</section>
+	<script layout:fragment="script">
+		$('button').bind('click', function(e) {
+			if (e.currentTarget.name === 'save') {
+				$(e.currentTarget.form).removeAttr('novalidate');
+			} else {
+				$(e.currentTarget.form).attr('novalidate', 'novalidate');
+			}
+		});
+	</script>
 </body>
 </html>
