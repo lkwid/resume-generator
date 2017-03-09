@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
+	media="screen,projection" />
+<link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet" />
+<title th:text="${status}">Error</title>
+</head>
+<body>
+	<div class=row>
+		<h1 class="indigo-text center" th:text="${error}">Error</h1>
+		<p class="col s12 center" th:text="${message}">An error was found while preparing this view</p>
+	</div>
+</body>
+</html>
