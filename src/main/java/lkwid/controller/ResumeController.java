@@ -59,78 +59,78 @@ public class ResumeController {
 
 	@RequestMapping("/")
 	public String formPersonal() {		
-		return "/form/personal";
+		return "form/personal";
 	}
 
 	@PostMapping(value = "/personal", params = { "save" })
 	public String addPersonal(@Valid Personal personal, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return "/form/personal";
+			return "form/personal";
 		formSession.savePersonal(personal);
 		return "redirect:/skill";		
 	}
 
 	@RequestMapping("/skill")
 	public String formSkills() {
-		return "/form/skill";
+		return "form/skill";
 	}
 
 	@PostMapping(value = "/skill", params = { "save" })
 	public String addSkills(@Valid Skill skill, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return "/form/skill";
+			return "form/skill";
 		formSession.saveSkill(skill);
 		return "redirect:/education";
 	}
 
 	@RequestMapping("/education")
 	public String formEducation() {
-		return "/form/education";
+		return "form/education";
 	}
 
 	@PostMapping(value = "/education", params = { "save" })
 	public String addEducation(@Valid Education education, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return "/form/education";
+			return "form/education";
 		formSession.saveEducation(education);
 		return "redirect:/experience";
 	}
 	
 	@RequestMapping("/experience")
 	public String formExperience() {
-		return "/form/experience";
+		return "form/experience";
 	}
 	
 	@PostMapping(value = "/experience", params = { "save" })
 	public String addExperience(@Valid Experience experience, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return "/form/experience";
+			return "form/experience";
 		formSession.saveExperience(experience);
 		return "redirect:/competence";
 	}
 	
 	@RequestMapping("/competence")
 	public String formCompetence() {
-		return "/form/competence";
+		return "form/competence";
 	}
 	
 	@PostMapping(value = "/competence", params = { "save" })
 	public String addCompetence(@Valid Competence competence, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return "/form/competence";
+			return "form/competence";
 		formSession.saveCompetence(competence);
 		return "redirect:/interest";
 	}
 	
 	@RequestMapping("/interest")
 	public String formInterest() {
-		return "/form/interest";
+		return "form/interest";
 	}
 	
 	@PostMapping(value = "/interest", params = { "save" })
 	public String addInterest(@Valid Interest interest, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
-			return "/form/interest";
+			return "form/interest";
 		formSession.saveInterest(interest);
 		return "/resume/resume";
 	}
@@ -138,21 +138,21 @@ public class ResumeController {
 	@RequestMapping(value = "/skill", params = { "addSkill" })
 	public String addSkill(Skill skill) {
 		skill.getSkills().add(null);
-		return "/form/skill";
+		return "form/skill";
 	}
 
 	@RequestMapping(value = "/skill", params = { "removeSkill" })
 	public String removeSkill(Skill skill, HttpServletRequest req) {
 		Integer rowId = Integer.valueOf(req.getParameter("removeSkill"));
 		skill.getSkills().remove(rowId.intValue());
-		return "/form/skill";
+		return "form/skill";
 	}
 	
 	@RequestMapping(value = "/education", params = { "addCourse" })
 	public String addCourse(Education education) {
 		education.getCourseDates().add(null);
 		education.getCourseDescriptions().add(null);
-		return "/form/education";
+		return "form/education";
 	}
 
 	@RequestMapping(value = "/education", params = { "removeCourse" })
@@ -160,7 +160,7 @@ public class ResumeController {
 		Integer rowId = Integer.valueOf(req.getParameter("removeCourse"));
 		education.getCourseDates().remove(rowId.intValue());
 		education.getCourseDescriptions().remove(rowId.intValue());
-		return "/form/education";
+		return "form/education";
 	}
 	
 	@RequestMapping(value = "/experience", params = { "addExperience" })
@@ -168,7 +168,7 @@ public class ResumeController {
 		experience.getStartExperience().add(null);
 		experience.getStopExperience().add(null);
 		experience.getJobDescriptions().add(null);
-		return "/form/experience";
+		return "form/experience";
 	}
 	
 	@RequestMapping(value = "/experience", params = { "removeExperience" })
@@ -177,14 +177,14 @@ public class ResumeController {
 		experience.getStartExperience().remove(rowId.intValue());
 		experience.getStopExperience().remove(rowId.intValue());
 		experience.getJobDescriptions().remove(rowId.intValue());
-		return "/form/experience";
+		return "form/experience";
 	}
 	
 	@RequestMapping(value = "/competence", params = { "addLanguage" })
 	public String addLanguages(Competence competence) {
 		competence.getLanguages().add(null);
 		competence.getProficiency().add(null);		
-		return "/form/competence";
+		return "form/competence";
 	}
 	
 	@RequestMapping(value = "/competence", params = { "removeLanguage" })
@@ -192,46 +192,46 @@ public class ResumeController {
 		Integer rowId = Integer.valueOf(req.getParameter("removeLanguage"));
 		competence.getLanguages().remove(rowId.intValue());	
 		competence.getProficiency().remove(rowId.intValue());	
-		return "/form/competence";
+		return "form/competence";
 	}
 	
 	@RequestMapping(value = "/competence", params = { "addDrivingLicence" })
 	public String addDrivingLicence(Competence competence) {		
 		competence.getDrivingLicenceCategory().add(null);
-		return "/form/competence";
+		return "form/competence";
 	}
 	
 	@RequestMapping(value = "/competence", params = { "removeDrivingLicence" })
 	public String removeDrivingLicence(Competence competence, HttpServletRequest req) {
 		Integer rowId = Integer.valueOf(req.getParameter("removeDrivingLicence"));
 		competence.getDrivingLicenceCategory().remove(rowId.intValue());		
-		return "/form/competence";
+		return "form/competence";
 	}
 	
 	@RequestMapping(value = "/competence", params = { "addPerk" })
 	public String addPerks(Competence competence) {		
 		competence.getPerks().add(null);
-		return "/form/competence";
+		return "form/competence";
 	}
 	
 	@RequestMapping(value = "/competence", params = { "removePerk" })
 	public String removePerks(Competence competence, HttpServletRequest req) {
 		Integer rowId = Integer.valueOf(req.getParameter("removePerk"));
 		competence.getPerks().remove(rowId.intValue());		
-		return "/form/competence";
+		return "form/competence";
 	}
 	
 	@RequestMapping(value = "/interest", params = { "addInterest" })
 	public String addInterests (Interest interest) {		
 		interest.getInterests().add(null);
-		return "/form/interest";
+		return "form/interest";
 	}	
 	
 	@RequestMapping(value = "/interest", params = { "removeInterest" })
 	public String removeInterests(Interest interest, HttpServletRequest req) {
 		Integer rowId = Integer.valueOf(req.getParameter("removeInterest"));
 		interest.getInterests().remove(rowId.intValue());		
-		return "/form/interest";
+		return "form/interest";
 	}
 
 
