@@ -57,7 +57,7 @@ public class ResumeController {
 		return formSession.toInterest();
 	}
 
-	@RequestMapping("/")
+	@RequestMapping(value = {"/","/personal"})
 	public String formPersonal() {		
 		return "form/personal";
 	}
@@ -132,7 +132,7 @@ public class ResumeController {
 		if (bindingResult.hasErrors())
 			return "form/interest";
 		formSession.saveInterest(interest);
-		return "/resume/resume";
+		return "resume/resume";
 	}
 
 	@RequestMapping(value = "/skill", params = { "addSkill" })

@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/default}" lang="pl">
+	layout:decorator="layout/default">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
-	media="screen,projection" />
-<link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet">
-<title>Edukacja</title>
+<meta charset="UTF-8" />
+<title th:text="#{menu.education}">Education</title>
 </head>
 <body>
 	<section layout:fragment="content">
@@ -23,8 +19,9 @@
 				<div th:errors="*{courseDates}" class="red-text">Błąd</div>
 				<div class="row" th:each="row,rowStat : *{courseDates}">
 					<div class="col s2">
-						<label for="courseDate">Dodaj datę</label> <input id="courseDate" type="text"
-							th:field="*{courseDates[__${rowStat.index}__]}">
+						<label for="courseDate">Data zakończenia</label> <input id="courseDate" type="text" required="required" class="validate"
+							th:errorclass="invalid" th:field="*{courseDates[__${rowStat.index}__]}" tabindex="1" placeholder="rrrr.mm" />
+						<div th:errors="*{courseDates[__${rowStat.index}__]}" class="red-text">Błąd</div>
 					</div>
 					<div class="col s10">
 						<button class="btn red waves-effect" type="submit" name="removeCourse" th:value="${rowStat.index}">
@@ -33,14 +30,14 @@
 					</div>
 					<div class="input-field col s12">
 						<textarea id="courseDescription" class="materialize-textarea"
-							th:field="*{courseDescriptions[__${rowStat.index}__]}"></textarea>
+							th:field="*{courseDescriptions[__${rowStat.index}__]}" tabindex="2"></textarea>
 						<label for="courseDescription">Dodaj opis</label>
 					</div>
 				</div>
 			</fieldset>
 			<div class="row" id="save">
-				<button class="btn waves-effect waves-light" type="submit" name="save">
-					<span th:remove="tag">Wyślij</span><i class="material-icons right">send</i>
+				<button class="btn waves-effect waves-light" type="submit" name="save" tabindex="3">
+					<span th:remove="tag" th:text="#{button.next}">Next</span><i class="material-icons right">send</i>
 				</button>
 			</div>
 		</form>

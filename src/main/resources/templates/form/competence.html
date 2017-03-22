@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/default}" lang="pl">
+	layout:decorator="layout/default">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
-	media="screen,projection" />
-<link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet">
-<title>Osobiste</title>
+<meta charset="UTF-8" />
+<title th:text="#{menu.competence}">Competences</title>
 </head>
 <body>
 	<section layout:fragment="content">
@@ -23,10 +19,10 @@
 				<div th:errors="*{languages}" class="red-text">Błąd</div>				
 				<div class="row" th:each="row,rowStat : *{languages}">
 					<div class="col s4">
-						<label for="languages">Język</label><input id="languages" type="text" th:field="*{languages[__${rowStat.index}__]}" />						
+						<label for="languages">Język</label><input id="languages" type="text" th:field="*{languages[__${rowStat.index}__]}" tabindex="1" />						
 					</div>
 					<div class="col s4">
-						<label for="proficiency">Biegłość</label><input id="proficiency" type="text" th:field="*{proficiency[__${rowStat.index}__]}" />						
+						<label for="proficiency">Poziom</label><input id="proficiency" type="text" th:field="*{proficiency[__${rowStat.index}__]}" tabindex="2" />						
 					</div>
 					<div class="col s4">
 						<button class="btn red waves-effect" type="submit" name="removeLanguage" th:value="${rowStat.index}">
@@ -43,7 +39,7 @@
 				<div th:errors="*{drivingLicenceCategory}" class="red-text">Błąd</div>
 				<div class="row" th:each="cat,catStat : *{drivingLicenceCategory}">
 					<div class="col s4">
-						<input type="text" th:field="*{drivingLicenceCategory[__${catStat.index}__]}" />						
+						<input type="text" th:field="*{drivingLicenceCategory[__${catStat.index}__]}" tabindex="3" />						
 					</div>					
 					<div class="col s8">
 						<button class="btn red waves-effect" type="submit" name="removeDrivingLicence" th:value="${catStat.index}">
@@ -60,7 +56,7 @@
 				<div th:errors="*{perks}" class="red-text">Błąd</div>
 				<div class="row" th:each="perk,perkStat : *{perks}">
 					<div class="col s4">
-						<input type="text" th:field="*{perks[__${perkStat.index}__]}" />						
+						<input type="text" th:field="*{perks[__${perkStat.index}__]}" tabindex="4" />						
 					</div>					
 					<div class="col s8">
 						<button class="btn red waves-effect" type="submit" name="removePerk" th:value="${perkStat.index}">
@@ -70,8 +66,8 @@
 				</div>
 			</fieldset>
 			<div class="row" id="save">
-				<button class="btn waves-effect waves-light" type="submit" name="save">
-					<span th:remove="tag">Wyślij</span><i class="material-icons right">send</i>
+				<button class="btn waves-effect waves-light" type="submit" name="save" tabindex="5">
+					<span th:remove="tag" th:text="#{button.next}">Next</span><i class="material-icons right">send</i>
 				</button>
 			</div>
 		</form>

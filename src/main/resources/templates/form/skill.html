@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/default}" lang="pl">
+	layout:decorator="layout/default">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
-	media="screen,projection" />
-<link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet">
-<title>Umiejętności</title>
+<meta charset="UTF-8" />
+<title th:text="#{menu.skill}">Skills</title>
 </head>
 <body>
 	<section layout:fragment="content">
@@ -23,7 +19,7 @@
 				<div th:errors="*{skills}" class="red-text">Błąd</div>
 				<div class="row" th:each="row,rowStat : *{skills}">
 					<div class="col s6">
-						<input type="text" required="required" th:field="*{skills[__${rowStat.index}__]}" />
+						<input type="text" required="required" th:field="*{skills[__${rowStat.index}__]}" tabindex="1" />
 					</div>
 					<div class="col s6">
 						<button class="btn red waves-effect" type="submit" name="removeSkill" th:value="${rowStat.index}">
@@ -33,8 +29,8 @@
 				</div>
 			</fieldset>
 			<div class="row" id="save">
-				<button class="btn waves-effect waves-light" type="submit" name="save">
-					<span th:remove="tag">Wyślij</span><i class="material-icons right">send</i>
+				<button class="btn waves-effect waves-light" type="submit" name="save" tabindex="2">
+					<span th:remove="tag" th:text="#{button.next}">Next</span><i class="material-icons right">send</i>
 				</button>
 			</div>
 		</form>

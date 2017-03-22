@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/default}" lang="pl">
+	layout:decorator="layout/default">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
-	media="screen,projection" />
-<link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet">
-<title>Informacje osobiste</title>
+<meta charset="UTF-8" />
+<title th:text="#{menu.personal}">Personal data</title>
 </head>
 <body>
 	<section layout:fragment="content">
@@ -17,19 +13,19 @@
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
-					<input th:field="*{name}" id="name" type="text" class="validate" required="required" th:errorclass="invalid">
-					<label for="name">Imię</label>
+					<input th:field="*{name}" id="name" type="text" class="validate" required="required" th:errorclass="invalid" /> <label
+						for="name">Imię</label>
 					<div th:errors="*{name}" class="red-text">Błąd</div>
 				</div>
 				<div class="input-field col s6">
-					<input th:field="*{surname}" id="surname" type="text" class="validate" required="required" th:errorclass="invalid">
+					<input th:field="*{surname}" id="surname" type="text" class="validate" required="required" th:errorclass="invalid" />
 					<label for="surname">Nazwisko</label>
 					<div th:errors="*{surname}" class="red-text">Błąd</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s12">
-					<input th:field="*{address}" id="address" type="text" class="validate" required="required" th:errorclass="invalid">
+					<input th:field="*{address}" id="address" type="text" class="validate" required="required" th:errorclass="invalid" />
 					<label for="address">Adres</label>
 					<div th:errors="*{address}" class="red-text">Błąd</div>
 				</div>
@@ -37,30 +33,30 @@
 			<div class="row">
 				<div class="input-field col s6">
 					<input th:field="*{birthdate}" id="birthdate" type="date" class="validate" required="required"
-						th:errorclass="invalid"> <label class="active" for="birthdate">Data urodzenia</label>
+						th:errorclass="invalid" /> <label class="active" for="birthdate">Data urodzenia</label>
 					<div th:errors="*{birthdate}" class="red-text">Błąd</div>
 				</div>
 				<div class="input-field col s6">
-					<input th:field="*{phone}" id="phone" type="text" class="validate" required="required" th:errorclass="invalid">
-					<label for="phone">Telefon</label>
+					<input th:field="*{phone}" id="phone" type="tel" class="validate" required="required" th:errorclass="invalid" /> <label
+						for="phone">Telefon</label>
 					<div th:errors="*{phone}" class="red-text">Błąd</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="input-field col s6">
-					<input th:field="*{email}" id="email" type="email" class="validate" required="required" th:errorclass="invalid">
+					<input th:field="*{email}" id="email" type="email" class="validate" required="required" th:errorclass="invalid" />
 					<label for="email">Email</label>
 					<div th:errors="*{email}" class="red-text">Błąd</div>
 				</div>
 				<div class="input-field col s6">
-					<input th:field="*{link}" id="link" type="text" class="validate" required="required" th:errorclass="invalid">
-					<label for="link">Link</label>
+					<input th:field="*{link}" id="link" type="text" class="validate" required="required" th:errorclass="invalid"
+						placeholder="http://" /> <label for="link" class="active">Link</label>
 					<div th:errors="*{link}" class="red-text">Błąd</div>
 				</div>
 			</div>
 			<div class="row" id="save">
 				<button class="btn waves-effect waves-light" type="submit" name="save">
-					<span th:remove="tag">Wyślij</span><i class="material-icons right">send</i>
+					<span th:remove="tag" th:text="#{button.next}">Next</span><i class="material-icons right">send</i>
 				</button>
 			</div>
 		</form>

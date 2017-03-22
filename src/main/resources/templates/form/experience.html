@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layout/default}" lang="pl">
+	layout:decorator="layout/default">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
-	media="screen,projection" />
-<link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet">
-<title>Doświadczenie zawodowe</title>
+<meta charset="UTF-8" />
+<title th:text="#{menu.experience}">Work experience</title>
 </head>
 <body>
 	<section layout:fragment="content">
@@ -23,12 +19,12 @@
 				<div th:errors="*{startExperience}" class="red-text">Błąd</div>
 				<div class="row" th:each="row,rowStat : *{startExperience}">
 					<div class="col s2">
-						<label for="startExperience">Dodaj datę rozpoczęcia</label> <input id="startExperience" type="text"
-							th:field="*{startExperience[__${rowStat.index}__]}">
+						<label for="startExperience">Data rozpoczęcia</label> <input id="startExperience" type="text"
+							th:field="*{startExperience[__${rowStat.index}__]}" tabindex="1" placeholder="rrrr.mm" />
 					</div>
 					<div class="col s2">
-						<label for="stopExperience">Dodaj datę zakończenia</label> <input id="stopExperience" type="text"
-							th:field="*{stopExperience[__${rowStat.index}__]}">
+						<label for="stopExperience">Data zakończenia</label> <input id="stopExperience" type="text"
+							th:field="*{stopExperience[__${rowStat.index}__]}" tabindex="2" placeholder="rrrr.mm" />
 					</div>
 					<div class="col s8">
 						<button class="btn red waves-effect" type="submit" name="removeExperience" th:value="${rowStat.index}">
@@ -36,14 +32,15 @@
 						</button>
 					</div>
 					<div class="input-field col s12">
-						<textarea id="jobDescription" class="materialize-textarea" th:field="*{jobDescriptions[__${rowStat.index}__]}"></textarea>
+						<textarea id="jobDescription" class="materialize-textarea" th:field="*{jobDescriptions[__${rowStat.index}__]}"
+							tabindex="3"></textarea>
 						<label for="jobDescription">Dodaj opis</label>
 					</div>
 				</div>
 			</fieldset>
 			<div class="row" id="save">
-				<button class="btn waves-effect waves-light" type="submit" name="save">
-					<span th:remove="tag">Wyślij</span><i class="material-icons right">send</i>
+				<button class="btn waves-effect waves-light" type="submit" name="save" tabindex="4">
+					<span th:remove="tag" th:text="#{button.next}">Next</span><i class="material-icons right">send</i>
 				</button>
 			</div>
 		</form>
