@@ -131,7 +131,12 @@ public class ResumeController {
 	public String addInterest(@Valid Interest interest, BindingResult bindingResult) {
 		if (bindingResult.hasErrors())
 			return "form/interest";
-		formSession.saveInterest(interest);
+		formSession.saveInterest(interest);	
+		return "redirect:/picture";
+	}
+	
+	@RequestMapping("/resume")
+	public String showResume() {
 		return "resume/resume";
 	}
 
