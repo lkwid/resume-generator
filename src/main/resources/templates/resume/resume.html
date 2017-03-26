@@ -4,8 +4,9 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<link href="/webjars/materializecss/0.98.0/css/materialize.min.css" type="text/css" rel="stylesheet"
-	media="screen,projection" />
-	<link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet" />
+	media="screen,print" />
+	<link href="/webjars/material-design-icons/3.0.1/material-icons.css" rel="stylesheet" />	
+	<link href="/css/custom.css" type="text/css" rel="stylesheet" />	
 	<title>Życiorys</title>
 </head>
 <body>
@@ -122,8 +123,8 @@
 		</div>
 		<div class="row">
 			<div class="col s12">
-				<span th:each="interest : ${interest.interests}">
-				<i class="tiny material-icons">thumb_up</i><span th:text="| ${interest} |"></span>
+				<span id="interests" th:each="interest : ${interest.interests}">
+				<i id="interest-icon" class="tiny material-icons">thumb_up</i><span th:text="${interest}"></span>
 				</span>
 			</div>
 		</div>

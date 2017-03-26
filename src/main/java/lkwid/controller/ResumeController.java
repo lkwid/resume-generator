@@ -24,7 +24,7 @@ public class ResumeController {
 
 	@Autowired
 	public ResumeController(FormSession formSession) {
-		this.formSession = formSession;
+		this.formSession = formSession;		
 	}
 
 	@ModelAttribute
@@ -238,6 +238,5 @@ public class ResumeController {
 		interest.getInterests().remove(rowId.intValue());		
 		return "form/interest";
 	}
-
 
 }

@@ -1,12 +1,16 @@
 package lkwid.model;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.net.URL;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Component;
 
 @SuppressWarnings("serial")
@@ -31,6 +35,7 @@ public class FormSession implements Serializable {
 	private List<String> drivingLicenceCategory = new ArrayList<>();
 	private List<String> talents = new ArrayList<>();
 	private List<String> interests = new ArrayList<>();
+	private URL picturePath;
 
 	public void savePersonal(Personal personal) {
 		this.name = personal.getName();
@@ -114,6 +119,14 @@ public class FormSession implements Serializable {
 		Interest interest = new Interest();
 		interest.setInterests(interests);
 		return interest;
+	}
+	
+	public Resource getPicturePath() {
+		return picturePath == null ? null : new UrlResource(picturePath);
+	}
+
+	public void setPicturePath(Resource picturePath) throws IOException {
+		this.picturePath = picturePath.getURL();
 	}
 
 }

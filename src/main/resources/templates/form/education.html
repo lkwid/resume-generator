@@ -20,7 +20,7 @@
 				<div class="row" th:each="row,rowStat : *{courseDates}">
 					<div class="col s2">
 						<label for="courseDate">Data zakończenia</label> <input id="courseDate" type="text" required="required" class="validate"
-							th:errorclass="invalid" th:field="*{courseDates[__${rowStat.index}__]}" tabindex="1" placeholder="rrrr.mm" />
+							th:errorclass="invalid" th:field="*{courseDates[__${rowStat.index}__]}" tabindex="1" placeholder="rrrr-mm" />
 						<div th:errors="*{courseDates[__${rowStat.index}__]}" class="red-text">Błąd</div>
 					</div>
 					<div class="col s10">
